@@ -1,8 +1,8 @@
-name: Build MonoHome APK
+name: Build MonoIcons LSPosed APK
 
 on:
   push:
-    branches: [main]
+    branches: [main, feature/monoicons-lsposed]
   workflow_dispatch:
 
 permissions:
@@ -40,8 +40,7 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: MonoHome-debug-apk
+          name: MonoIcons-debug-apk
           path: app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
           retention-days: 30
-

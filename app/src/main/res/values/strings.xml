@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MonoIcons</string>
+    <string name="module_description">Автоматически переводит значки приложений в оттенки серого в Samsung One UI Home.</string>
+</resources>

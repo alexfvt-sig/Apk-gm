@@ -1,20 +1,25 @@
-# MonoHome — монохромный лаунчер для Android
+# MonoIcons
 
-MonoHome показывает установленные приложения сеткой с чёрно-белыми значками, позволяет искать и запускать их. Android не позволяет обычному приложению перекрасить значки внутри One UI Home, поэтому MonoHome нужно выбрать главным домашним экраном.
+MonoIcons is an LSPosed module for Samsung One UI Home. It applies a grayscale color filter when the launcher loads an app icon, including icons for apps installed later. It keeps the Samsung launcher and home-screen layout.
 
-## Скачать APK
+## Requirements
 
-Готовый APK собирается GitHub Actions. Открой вкладку **Actions**, выбери последний успешный запуск **Build MonoHome APK** и скачай артефакт **MonoHome-debug-apk**. APK также отправлен владельцу репозитория по Gmail.
+- A rooted Samsung device
+- Magisk
+- An LSPosed build that supports libxposed API 102
+- Samsung One UI Home package `com.sec.android.app.launcher`
 
-## Установка
+This is not a normal launcher APK. Without root and LSPosed, Android does not let a regular app recolor icons in One UI Home. This APK does not unlock the bootloader or root the phone.
 
-1. Скачай `app-debug.apk` на телефон и открой файл.
-2. Если Android спросит, разреши установку приложений из этого источника.
-3. Открой MonoHome и нажми **Сделать главным экраном**.
-4. Чтобы вернуть Samsung One UI Home: **Настройки → Приложения → Приложения по умолчанию → Главный экран**.
+## Install
 
-Чёрно-белые значки видны в MonoHome. В системных меню, списке недавних приложений и One UI Home остаются исходные значки.
+1. Install `MonoIcons-debug.apk`.
+2. Open LSPosed and enable MonoIcons. Its declared scope is One UI Home.
+3. Restart the phone or One UI Home.
+4. If existing icons remain colored, restart One UI Home so it reloads the cached icons.
 
-## Сборка из исходников
+If the phone is not rooted, stop before unlocking the bootloader: Samsung bootloader unlocking can erase user data and affect Knox state. The module has not been tested on the user's specific firmware.
 
-Открой корневую папку этого репозитория в Android Studio, дождись синхронизации Gradle и выбери **Build → Build APK(s)**. Сборка требует Android SDK Platform 35 и Android Gradle Plugin 8.8.2.
+## Build
+
+Open this repository in Android Studio, or run `gradle --no-daemon :app:assembleDebug` with Android SDK 35 and Java 17. GitHub Actions builds the debug APK for the main branch and this feature branch.
